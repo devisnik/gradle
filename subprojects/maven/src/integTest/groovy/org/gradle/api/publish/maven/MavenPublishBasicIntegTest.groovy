@@ -16,7 +16,6 @@
 
 package org.gradle.api.publish.maven
 
-import org.gradle.integtests.fixtures.FeaturePreviewsFixture
 import org.gradle.integtests.fixtures.publish.maven.AbstractMavenPublishIntegTest
 import org.gradle.test.fixtures.maven.MavenLocalRepository
 import org.gradle.util.SetSystemProperties
@@ -293,7 +292,6 @@ class MavenPublishBasicIntegTest extends AbstractMavenPublishIntegTest {
         settingsFile << """
             rootProject.name = 'root'
         """
-        FeaturePreviewsFixture.enableStablePublishing(settingsFile)
         buildFile << """
             apply plugin: 'maven-publish'
         """

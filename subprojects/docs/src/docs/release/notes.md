@@ -291,6 +291,13 @@ The `IdeaModule` Tooling API model element contains methods to retrieve resource
 In previous Gradle versions the `source` filed in `SourceTask` was accessible from subclasses.
 This is not the case anymore as the `source` filed is now declared as `private`.
 
+### Evaluation of the `publishing {}` block is now eager
+
+In Gradle 4.8, the old behavior of the `publishing {}` block to defer its evaluation was deprecated.
+A new behavior that made its evaluation eager (like for any other block) was introduced and switched on using `enableFeaturePreview('STABLE_PUBLISHING')`.
+Now, the old behavior has been removed and switching on the new one is no longer necessary. 
+If you need to defer evaluation, please use `afterEvaluate {}`.
+
 ### Changes to previously deprecated APIs
 
 - The `org.gradle.plugins.signing.Signature` methods `getToSignArtifact()` and `setFile(File)` are removed.
